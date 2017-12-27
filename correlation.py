@@ -1,3 +1,4 @@
+# coding=utf-8
 # The formula for the correlation (r) is
 # r = (1/n-1) ( (∑x ∑y (x - ẍ) (y - ÿ) ) / Sx Sy)
 

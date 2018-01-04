@@ -13,7 +13,8 @@ from sklearn.datasets import load_boston
 # Alternatives data sets
 # data_set = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 4, 5, 6, 8, 9, 10, 13, 12]]
 # data_set = [[1, 2, 4, 3, 5], [1, 3, 3, 2, 5]]
-data_set = [[1, 2, 3], [1, 2, 3]]
+# data_set = [[1, 2, 3], [1, 2, 3]]
+data_set = [[3, 1, 0, 4], [2, 2, 1, 3]]
 
 x_mean = np.mean(data_set[0])
 y_mean = np.mean(data_set[1])
@@ -26,8 +27,11 @@ x_pow = np.power(x, 2)
 
 b_1 = np.sum(x_y) / np.sum(x_pow)
 b_0 = y_mean - b_1 * x_mean
+# b_1 = 0.0
+# b_0 = 0.0
 
 print("β0: %f β1: %f" % (b_0, b_1))
+print("number of training: " + str(len(data_set[1])))
 
 predict = []
 for i in data_set[0]:

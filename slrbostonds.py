@@ -26,7 +26,7 @@ print("Cost function: " + str(J))
 
 predict = slr.get_prediction()
 
-print slr.root_mean_squared_error()
+print("Root mean squared error: " + str(slr.root_mean_squared_error()));
 
 plt.figure(1)
 plt.subplot(211)

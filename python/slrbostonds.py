@@ -1,7 +1,7 @@
 # coding=utf-8
 import pandas as pd
 import matplotlib.pyplot as plt
-from SimpleLinearRegression import SimpleLinearRegression
+from python.SimpleLinearRegression import SimpleLinearRegression
 from sklearn.datasets import load_boston
 
 boston = load_boston()

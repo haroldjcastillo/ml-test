@@ -1,0 +1,1 @@
+v = zeros(10, 1);for i = 1:10,     v(i) = 2^i;end;i = 1;while i <= 5,     v(i) = 100;     i = i + 1;end;clear;v = zeros(10, 1);i = 1;while true,     v(i) = 100;     i = i + 1;     if i == 3,          break;     end;end;function y = squareThisNumber(x);y = x^2; 

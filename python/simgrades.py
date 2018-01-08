@@ -1,10 +1,3 @@
-# coding=utf-8
-
-# Gradient Descent Example
-# repeat until convergence {
-#   θj:= θj − α 1/m ∑ from i=1 to m ( hθ(x(i) ) − y^(i) )* x^(i)j for j := 0...n
-# }
-
 import matplotlib
 import numpy as np
 import matplotlib.cm as cm
@@ -24,11 +17,13 @@ bos['PRICE'] = boston.target
 
 print(boston.DESCR)
 
-#x = bos['RM']
-#y = bos['ZN']
+# x = bos['RM']
+# y = bos['ZN']
+
 Y = bos['PRICE']
 x = np.linspace(0, 5, 50)
 y = np.linspace(0, 5, 40)
+
 
 def f(x, y):
     return np.sin(x) ** 10 + np.cos(10 + y * x) * np.cos(x)

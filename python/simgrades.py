@@ -1,35 +1,34 @@
 import matplotlib
 import numpy as np
-import matplotlib.cm as cm
-import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
-import pandas as pd
-from sklearn.datasets import load_boston
+from SimpleLinearRegression import SimpleLinearRegression
 
-boston = load_boston()
-features = boston.feature_names
-target = boston.target
-data = boston.data
+data = np.genfromtxt('../data/population_profit.txt', delimiter=',')
 
-bos = pd.DataFrame(boston.data)
-bos.columns = boston.feature_names
-bos['PRICE'] = boston.target
-
-print(boston.DESCR)
-
-# x = bos['RM']
-# y = bos['ZN']
-
-Y = bos['PRICE']
-x = np.linspace(0, 5, 50)
-y = np.linspace(0, 5, 40)
+m = len(data[:, 0])
+theta = np.zeros((2, 1))
+X = np.c_[np.ones((m,)), data[:, 0]]
+y = data[:, 1]
+iterations = 1500
+alpha = 0.001
 
 
-def f(x, y):
-    return np.sin(x) ** 10 + np.cos(10 + y * x) * np.cos(x)
+def cost_function(X, y, theta):
+    h = np.dot(X, theta)
+    error = np.power((np.subtract(h, y)), 2)
+    J = np.sum(error[:, 1]) / (2 * m)
+    return J
 
 
-X, Y = np.meshgrid(x, y)
-Z = f(X, Y)
-plt.contour(X, Y, Z)
-plt.show()
+J_history = np.zeros((iterations,1))
+
+for iter in range(1, iterations):
+    loss = np.subtract(np.dot(X, theta), y)
+    # print("Iteration %d | Cost: %f" % (iter, cost_function(X, y, theta)))
+    gradient = np.dot(X.transpose(), loss) / m
+    print(gradient)
+    theta = theta - alpha * gradient
+    theta = theta - alpha * gradient
+    J_history[iter] = cost_function(X, y, theta)
+
+print(theta)

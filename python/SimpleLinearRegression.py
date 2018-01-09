@@ -28,7 +28,7 @@ class SimpleLinearRegression(object):
         return predict
 
     def cost_function(self):
-        error = np.power((np.subtract(self.get_prediction(), self.x)), 2)
+        error = np.power((np.subtract(self.get_prediction(), self.y)), 2)
         return np.sum(error) / (2 * len(self.y))
 
     def root_mean_squared_error(self):

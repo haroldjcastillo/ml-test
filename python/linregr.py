@@ -1,8 +1,8 @@
-from numpy import loadtxt, ones, linspace, logspace
+import numpy as np
 from pylab import scatter, show, title, xlabel, ylabel, plot, contour
 
 #Load the dataset
-data = loadtxt('ex1data1.txt', delimiter=',')
+data = np.genfromtxt('../data/population_profit.txt', delimiter=',')
 
 #Plot the data
 scatter(data[:, 0], data[:, 1], marker='o', c='b')
